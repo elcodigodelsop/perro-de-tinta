@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#091522">
+  <title>Leí los doce — Para Reiner</title>
+  <style>
+    :root {
+      --night-950: #07111c;
+      --night-900: #091522;
+      --night-850: #0d1c2c;
+      --rain-500: #82909b;
+      --rain-300: #b9c2c8;
+      --sand-100: #f1e7d6;
+      --sand-200: #d9c7ad;
+      --sand-300: #c7ae8b;
+      --rust-500: #b75738;
+      --rust-400: #d1724f;
+      --amber-400: #e9b957;
+      --line: rgba(217, 199, 173, .28);
+      --line-strong: rgba(217, 199, 173, .5);
+      --display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+      --body: "Segoe UI", Arial, Helvetica, sans-serif;
+      --utility: Consolas, "Liberation Mono", "Courier New", monospace;
+      --measure: 72rem;
+      --gutter: clamp(1.25rem, 4vw, 4rem);
+      --section-space: clamp(5rem, 12vw, 10rem);
+      --nav-height: 4.4rem;
+    }
+
+    * { box-sizing: border-box; }
+    html { color-scheme: dark; scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 1rem); }
+    body {
+      margin: 0;
+      min-width: 20rem;
+      color: var(--sand-100);
+      background-color: var(--night-900);
+      background-image: radial-gradient(rgba(241,231,214,.075) .7px, transparent .85px);
+      background-size: 9px 9px;
+      font-family: var(--body);
+      font-size: 1rem;
+      line-height: 1.7;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    cite { font-family: var(--display); font-style: italic; }
+    strong { font-weight: 650; }
+    .wrap { width: min(var(--measure), calc(100% - 2 * var(--gutter))); margin-inline: auto; }
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: .65rem;
+      left: .65rem;
+      padding: .7rem 1rem;
+      color: var(--night-950);
+      background: var(--amber-400);
+      transform: translateY(-180%);
+      transition: transform .16s ease;
+    }
+    .skip-link:focus { transform: translateY(0); }
+    :focus-visible { outline: .2rem solid var(--amber-400); outline-offset: .25rem; }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .module-nav {
+      position: sticky;
+      z-index: 50;
+      top: 0;
+      min-height: var(--nav-height);
+      border-bottom: 1px solid var(--line-strong);
+      background: rgba(7,17,28,.96);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+    .module-nav__inner {
+      display: flex;
+      align-items: stretch;
+      gap: .15rem;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scrollbar-color: var(--rust-500) var(--night-950);
+      scrollbar-width: thin;
+    }
+    .module-nav a {
+      flex: 0 0 auto;
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: .55rem;
+      align-items: center;
+      min-height: var(--nav-height);
+      padding: .85rem 1rem;
+      color: var(--rain-300);
+      font-family: var(--utility);
+      font-size: .72rem;
+      letter-spacing: .07em;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .module-nav a:first-child { padding-left: 0; }
+    .module-nav a:hover { color: var(--sand-100); }
+    .module-nav__number { color: var(--rust-400); }
+
+    .opening {
+      min-height: min(50rem, calc(100svh - var(--nav-height)));
+      display: grid;
+      align-content: center;
+      padding-block: clamp(4.5rem, 10vw, 8rem);
+    }
+    .opening__rule {
+      display: flex;
+      align-items: center;
+      height: 2rem;
+      margin-bottom: clamp(2rem, 6vw, 5rem);
+      border-top: 1px solid var(--line-strong);
+    }
+    .opening__rule span {
+      display: block;
+      width: clamp(3rem, 12vw, 9rem);
+      height: .22rem;
+      background: var(--rust-500);
+      transform: rotate(-2deg);
+      transform-origin: left;
+    }
+    .stamp-row { display: flex; flex-wrap: wrap; gap: .85rem; margin-bottom: 2rem; }
+    .stamp {
+      display: inline-block;
+      padding: .42rem .7rem .36rem;
+      color: var(--sand-300);
+      border: 2px solid currentColor;
+      box-shadow: inset 0 0 0 1px var(--night-900), inset 0 0 0 2px currentColor;
+      font-family: var(--utility);
+      font-size: .67rem;
+      font-weight: 700;
+      letter-spacing: .11em;
+      line-height: 1.2;
+      text-transform: uppercase;
+      transform: rotate(-1.7deg);
+    }
+    .stamp--rust { color: var(--rust-400); transform: rotate(1.2deg); }
+    .opening h1 {
+      margin: 0;
+      max-width: 12ch;
+      color: var(--sand-100);
+      font-family: var(--display);
+      font-size: clamp(4.1rem, 12vw, 9rem);
+      font-weight: 400;
+      line-height: .92;
+      letter-spacing: -.055em;
+    }
+    .opening__name {
+      margin: clamp(2rem, 5vw, 3.5rem) 0 .7rem;
+      color: var(--sand-300);
+      font-family: var(--display);
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      line-height: 1;
+    }
+    .opening__lead { max-width: 38rem; margin: 0; color: var(--rain-300); font-size: clamp(1.05rem, 2vw, 1.35rem); }
+    .corpus-note {
+      max-width: 36rem;
+      margin: clamp(2rem, 5vw, 4rem) 0 0;
+      padding-top: 1.1rem;
+      color: var(--rain-300);
+      border-top: 1px solid var(--line);
+      font-size: .94rem;
+    }
+    .corpus-note strong { color: var(--sand-100); font-variant-numeric: tabular-nums; }
+
+    .module { position: relative; padding-block: var(--section-space); }
+    .module--band { background: rgba(13,28,44,.94); }
+    .module__head {
+      display: grid;
+      grid-template-columns: 7rem minmax(0,1fr);
+      gap: clamp(1.25rem, 5vw, 4rem);
+      align-items: start;
+      margin-bottom: clamp(3rem, 7vw, 6rem);
+    }
+    .module__number {
+      margin: .25rem 0 0;
+      color: var(--rust-400);
+      font-family: var(--utility);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .module__head h2 {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 400;
+      line-height: .98;
+      letter-spacing: -.045em;
+    }
+    .module__head p { max-width: 42rem; margin: 1.3rem 0 0; color: var(--rain-300); }
+
+    .finding {
+      display: grid;
+      grid-template-columns: minmax(13rem,.72fr) minmax(18rem,1.28fr);
+      gap: clamp(2rem, 8vw, 8rem);
+      align-items: start;
+      padding-block: clamp(4rem, 8vw, 7rem);
+      border-top: 1px solid var(--line);
+    }
+    .finding:last-child { border-bottom: 1px solid var(--line); }
+    .finding__measure {
+      color: var(--sand-200);
+      font-family: var(--display);
+      font-size: clamp(5rem, 11vw, 9.2rem);
+      font-variant-numeric: lining-nums tabular-nums;
+      font-weight: 400;
+      line-height: .82;
+      letter-spacing: -.06em;
+    }
+    .finding__measure span { font-size: .42em; letter-spacing: 0; }
+    .finding__measure--paired { white-space: nowrap; }
+    .finding__measure--title { font-size: clamp(3.5rem, 7.6vw, 6.3rem); line-height: .86; }
+    .finding--rust .finding__measure { color: var(--rust-400); }
+    .finding--hope .finding__measure { color: var(--amber-400); }
+    .finding__copy { max-width: 40rem; }
+    .finding__copy h3 {
+      margin: 0 0 1.25rem;
+      font-family: var(--display);
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      font-weight: 400;
+      line-height: 1.04;
+      letter-spacing: -.025em;
+    }
+    .finding__copy p { margin: 0 0 1rem; color: var(--rain-300); }
+    .finding__copy strong { color: var(--sand-100); }
+
+    .title-list { margin: 0; padding: 0; list-style: none; counter-reset: titles; }
+    .title-list li {
+      counter-increment: titles;
+      display: grid;
+      grid-template-columns: 3rem minmax(0,1fr) auto;
+      gap: 1rem;
+      align-items: baseline;
+      padding-block: 1.15rem;
+      border-top: 1px solid var(--line);
+    }
+    .title-list li:last-child { border-bottom: 1px solid var(--line); }
+    .title-list li::before {
+      content: counter(titles, decimal-leading-zero);
+      color: var(--rain-500);
+      font-family: var(--utility);
+      font-size: .72rem;
+      letter-spacing: .12em;
+    }
+    .title-list__name { font-family: var(--display); font-size: clamp(1.35rem, 2.6vw, 2rem); line-height: 1.2; }
+    .status { font-size: .7rem; font-weight: 650; letter-spacing: .08em; text-align: right; text-transform: uppercase; }
+    .status--ready { color: var(--rain-300); }
+    .status--work { color: var(--sand-300); }
+    .status--pending { color: var(--rust-400); }
+
+    .closing-quote {
+      display: grid;
+      min-height: calc(100svh - var(--nav-height));
+      align-items: center;
+      background: rgba(7,17,28,.97);
+    }
+    .quote-wrap { max-width: 72rem; }
+    .closing-quote blockquote { margin: 0; }
+    .closing-quote blockquote p {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(2.25rem, 5.4vw, 5rem);
+      font-weight: 400;
+      line-height: 1.13;
+      letter-spacing: -.025em;
+    }
+    .closing-quote blockquote footer { margin-top: 2rem; color: var(--sand-300); }
+    .quote-note { max-width: 35rem; margin: clamp(3rem,7vw,6rem) 0 0 auto; color: var(--rain-300); }
+    .page-footer { padding-block: 2.2rem 4rem; color: var(--rain-500); font-family: var(--utility); font-size: .68rem; letter-spacing: .09em; text-transform: uppercase; }
+
+    @media (max-width: 760px) {
+      :root { --section-space: 5.5rem; --nav-height: 4rem; }
+      body { font-size: .98rem; }
+      .module-nav__inner { width: 100%; }
+      .module-nav a { min-height: var(--nav-height); padding-inline: .8rem; }
+      .opening { min-height: 42rem; }
+      .module__head { grid-template-columns: 1fr; gap: 1.2rem; }
+      .finding { grid-template-columns: 1fr; gap: 2.3rem; }
+      .finding__measure { font-size: clamp(5rem,24vw,7rem); }
+      .finding__measure--title { font-size: clamp(3.7rem,16vw,5.5rem); }
+      .title-list li { grid-template-columns: 2.3rem minmax(0,1fr); gap: .75rem; }
+      .title-list__name { font-size: 1.3rem; }
+      .status { grid-column: 2; text-align: left; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+
+    @media print {
+      :root {
+        --night-950: #fff;
+        --night-900: #fff;
+        --night-850: #f2f2f0;
+        --rain-500: #555;
+        --rain-300: #333;
+        --sand-100: #111;
+        --sand-200: #222;
+        --sand-300: #444;
+        --line: rgba(0,0,0,.24);
+        --line-strong: rgba(0,0,0,.42);
+      }
+      @page { size: A4; margin: 16mm; }
+      html { scroll-padding-top: 0; }
+      body { min-width: 0; color: #111; background: #fff; font-size: 10pt; }
+      .wrap { width: 100%; }
+      .skip-link, .module-nav { display: none; }
+      .opening, .closing-quote { min-height: 0; }
+      .opening, .module { padding-block: 16mm; }
+      .module--band, .closing-quote { color: #111; background: #fff; }
+      .finding, .title-list li, blockquote { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <nav class="module-nav" aria-label="Índice de esta lectura">
+    <div class="module-nav__inner wrap">
+      <a href="#hallazgos"><span class="module-nav__number">01</span><span>Hallazgos</span></a>
+      <a href="#indice"><span class="module-nav__number">02</span><span>Índice de trabajo</span></a>
+      <a href="#cierre"><span class="module-nav__number">03</span><span>Cierre</span></a>
+    </div>
+  </nav>
+
+  <main id="contenido">
+    <header class="opening wrap" aria-labelledby="page-title">
+      <div class="opening__rule" aria-hidden="true"><span></span></div>
+      <div class="stamp-row" aria-label="Estado del documento">
+        <span class="stamp">Lectura editorial · 2 de septiembre de 2026</span>
+        <span class="stamp stamp--rust">Privado · Para Reiner</span>
+      </div>
+      <h1 id="page-title">Leí los doce.</h1>
+      <p class="opening__name">Reiner</p>
+      <p class="opening__lead">Me tomé el trabajo en serio antes de proponerte nada. Esto es lo que apareció.</p>
+      <p class="corpus-note">Son <strong>31.166 palabras</strong> de material único repartidas en doce archivos. Los medí uno por uno.</p>
+    </header>
+
+    <section class="module module--band" id="hallazgos" aria-labelledby="hallazgos-title">
+      <div class="wrap">
+        <header class="module__head">
+          <p class="module__number">01 · Lectura</p>
+          <div>
+            <h2 id="hallazgos-title">Cuatro hallazgos</h2>
+            <p>Lo que apareció al medir y comparar los doce archivos, antes de decidir la forma del libro.</p>
+          </div>
+        </header>
+
+        <article class="finding finding--rust">
+          <div class="finding__measure" aria-label="Cincuenta y ocho coma nueve por ciento">58,9<span>%</span></div>
+          <div class="finding__copy">
+            <h3>Hay un archivo con dos obras pegadas.</h3>
+            <p><cite>Odio de perro</cite> no es un cuento de 3.952 palabras: son 1.542 palabras de una pieza que se sostiene sola y detrás, pegado, un borrador anterior de <cite>Hermanos Perros</cite>. Los dos archivos comparten el <strong>58,9 %</strong> del texto.</p>
+            <p>Si armábamos el índice sin ver esto, el libro imprimía lo mismo dos veces con dos títulos distintos.</p>
+          </div>
+        </article>
+
+        <article class="finding">
+          <div class="finding__measure finding__measure--paired" aria-label="Treinta y dos palabras por oración, frente a quinientas sesenta y seis">32 <span>/</span> 566</div>
+          <div class="finding__copy">
+            <h3>Ya escribiste el manual de estilo de tu propio libro.</h3>
+            <p>Medí las oraciones de los doce textos. Once van entre 220 y 566 palabras por punto seguido —<cite>El compañero</cite> tiene un párrafo de 870 palabras sin un solo punto. Y hay uno que va en 32: <cite>Odio de perro</cite>.</p>
+            <p>Está puntuado, dividido en párrafos, con signos de apertura y comillas. <strong>La norma para corregir el libro no hay que traerla de afuera: es tuya, y está en ese texto.</strong></p>
+          </div>
+        </article>
+
+        <article class="finding finding--rust">
+          <div class="finding__measure">2</div>
+          <div class="finding__copy">
+            <h3>Dos de los tres textos breves no son de este libro.</h3>
+            <p><cite>El ciclo</cite> y <cite>La libertad del encierro</cite> no los narra un perro: los narra una persona, en plural, con humor.</p>
+            <p>Son buenos y son otra cosa — el arranque de un segundo libro con tu voz. Sacarlos de aquí no es descartarlos.</p>
+          </div>
+        </article>
+
+        <article class="finding finding--hope">
+          <div class="finding__measure finding__measure--title">El viejo<br>errante</div>
+          <div class="finding__copy">
+            <h3>Es el que hay que terminar.</h3>
+            <p>Un cachorro blanco de San Pedro de Atacama con cara de perro viejo, al que nadie adopta por eso, y su madre enseñándole a leerlo como una cualidad y no como un defecto.</p>
+            <p>Es la premisa más original de todo el corpus y se corta justo cuando arranca. <strong>Ese lo tienes que escribir tú. No hay nadie más que pueda.</strong></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="module" id="indice" aria-labelledby="indice-title">
+      <div class="wrap">
+        <header class="module__head">
+          <p class="module__number">02 · Volumen</p>
+          <div>
+            <h2 id="indice-title">Índice de trabajo</h2>
+            <p>Doce títulos. Nueve entran al volumen y tres necesitan una decisión tuya antes de cerrarlo.</p>
+          </div>
+        </header>
+        <ol class="title-list">
+          <li><span class="title-list__name">Razón de Perro</span><span class="status status--ready">Listo para edición</span></li>
+          <li><span class="title-list__name">Odio de Perro</span><span class="status status--work">Limpiar duplicado</span></li>
+          <li><span class="title-list__name">La Esperanza de Merlín</span><span class="status status--ready">Listo para edición</span></li>
+          <li><span class="title-list__name">El viejo errante</span><span class="status status--pending">Completar por el autor</span></li>
+          <li><span class="title-list__name">Mi pandilla</span><span class="status status--ready">Listo para edición</span></li>
+          <li><span class="title-list__name">Hermanos Perros: El Rubio y el Rucio</span><span class="status status--ready">Listo para edición</span></li>
+          <li><span class="title-list__name">Los sueños de LU</span><span class="status status--ready">Listo para edición</span></li>
+          <li><span class="title-list__name">El compañero</span><span class="status status--ready">Listo para edición</span></li>
+          <li><span class="title-list__name">Cuando te espero</span><span class="status status--ready">Listo para edición</span></li>
+          <li><span class="title-list__name">El amor de Roberto</span><span class="status status--ready">Listo para edición</span></li>
+          <li><span class="title-list__name">El ciclo</span><span class="status status--pending">Confirmar como interludio</span></li>
+          <li><span class="title-list__name">La libertad del encierro</span><span class="status status--pending">Confirmar como interludio</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="module closing-quote" id="cierre" aria-labelledby="cierre-title">
+      <div class="wrap quote-wrap">
+        <header class="module__head">
+          <p class="module__number">03 · Cierre</p>
+          <div><h2 class="visually-hidden" id="cierre-title">Cierre de Odio de perro</h2></div>
+        </header>
+        <blockquote>
+          <p>Y tú, aún te preguntas cuando pasas en tu máquina ¿por qué me abalanzo frente a ella queriendo romperla en mil pedazos? Sin sentir miedo por mi integridad, sin miedo a morir. Espero algún día te preguntes… ¿y a ti ya te arrebataron tu felicidad?</p>
+          <footer>— <cite>Odio de perro</cite></footer>
+        </blockquote>
+        <p class="quote-note">Con esa línea cierra tu mejor texto. Es el final del libro que abre el libro.</p>
+      </div>
+    </section>
+
+    <footer class="page-footer wrap">Documento privado · No indexado</footer>
+  </main>
+</body>
+</html>
