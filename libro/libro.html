@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#091522">
+<title>Tu libro, ilustrado — Para Reiner</title>
+<style>
+:root{
+  --night-950:#07111c;--night-900:#091522;--night-850:#0d1c2c;--night-800:#122438;
+  --rain-500:#82909b;--rain-300:#b9c2c8;
+  --sand-100:#f1e7d6;--sand-200:#d9c7ad;--sand-300:#c7ae8b;
+  --rust-400:#d1724f;--amber-500:#d99b2b;--amber-400:#e9b957;
+  --line:rgba(217,199,173,.24);--line-strong:rgba(217,199,173,.5);
+  --display:Georgia,"Times New Roman",Times,serif;
+  --body:"Segoe UI",system-ui,Arial,Helvetica,sans-serif;
+  --gutter:clamp(1.25rem,4vw,4rem);
+}
+*{box-sizing:border-box}
+html{color-scheme:dark;scroll-behavior:smooth}
+body{margin:0;color:var(--sand-100);background:var(--night-900);font-family:var(--body);font-size:1.02rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--amber-400)}
+cite,.serif{font-family:var(--display)}
+.wrap{width:min(72rem,calc(100% - 2*var(--gutter)));margin-inline:auto}
+.narrow{width:min(44rem,calc(100% - 2*var(--gutter)));margin-inline:auto}
+.label{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber-400);margin:0 0 1rem}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.1;margin:0}
+section{padding-block:clamp(4rem,10vw,7.5rem)}
+section+section{border-top:1px solid var(--line)}
+
+/* Portada */
+.hero{position:relative;min-height:92vh;display:grid;align-items:end;overflow:hidden;padding:0}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,21,34,.15) 0%,rgba(9,21,34,.35) 45%,var(--night-900) 96%)}
+.hero .wrap{position:relative;z-index:1;padding-block:clamp(3rem,8vw,6rem)}
+.hero h1{font-size:clamp(2.8rem,8vw,6.2rem);max-width:12ch}
+.hero p{max-width:34rem;font-size:clamp(1.05rem,2vw,1.25rem);color:var(--sand-200);margin:1.4rem 0 0}
+
+.lead{font-family:var(--display);font-size:clamp(1.35rem,2.6vw,1.8rem);line-height:1.45;margin:0}
+.lead+p{margin-top:1.5rem;color:var(--sand-200)}
+
+/* Hecho */
+.done{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:2.5rem}
+.done div{background:var(--night-900);padding:1.6rem}
+.done strong{display:block;font-family:var(--display);font-weight:400;font-size:2.4rem;line-height:1;color:var(--amber-400);margin-bottom:.5rem}
+.done span{color:var(--sand-200);font-size:.95rem}
+
+/* Láminas */
+.plate{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(1.5rem,5vw,4.5rem);align-items:center;padding-block:clamp(2.5rem,6vw,4.5rem)}
+.plate+.plate{border-top:1px solid var(--line)}
+.plate:nth-child(even) figure{order:2}
+.plate figure{margin:0}
+.plate figure img{width:100%;aspect-ratio:3/4;object-fit:cover;box-shadow:0 1.5rem 3rem rgba(0,0,0,.45)}
+.plate .num{font-family:var(--display);color:var(--rain-500);font-size:.95rem}
+.plate h3{font-size:clamp(1.9rem,4vw,2.8rem);margin:.3rem 0 1.2rem}
+.plate blockquote{margin:0 0 1.2rem;padding-left:1.1rem;border-left:2px solid var(--amber-500);font-family:var(--display);font-style:italic;font-size:1.15rem;color:var(--sand-100)}
+.plate p{margin:0 0 .9rem;color:var(--sand-200)}
+.ask{margin-top:1.2rem;padding:1rem 1.1rem;border:1px solid var(--line-strong);border-radius:.4rem;font-size:.95rem;color:var(--sand-100)}
+.ask b{color:var(--amber-400);font-weight:600}
+
+/* Perros */
+.dogs{display:grid;grid-template-columns:repeat(auto-fill,minmax(13.5rem,1fr));gap:1.5rem;margin-top:2.5rem}
+.dog{background:var(--sand-100);color:var(--night-900);border-radius:.3rem;overflow:hidden}
+.dog img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.dog div{padding:1rem 1.1rem 1.2rem}
+.dog h3{font-size:1.45rem;color:var(--night-900)}
+.dog .story{font-size:.8rem;color:#6b5e4c;margin:.15rem 0 .7rem}
+.dog p{margin:0;font-size:.86rem;line-height:1.5}
+.dog .t{color:#1f3a28}
+.dog .p{color:#8a3d22;margin-top:.35rem}
+.legend{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;margin-top:1.4rem;font-size:.9rem;color:var(--sand-200)}
+.legend i{display:inline-block;width:.7rem;height:.7rem;border-radius:50%;margin-right:.45rem;vertical-align:middle}
+
+/* Reglas */
+.rules{list-style:none;padding:0;margin:2rem 0 0;display:grid;gap:1.2rem}
+.rules li{padding-left:2.2rem;position:relative;color:var(--sand-200)}
+.rules li::before{content:"";position:absolute;left:0;top:.55rem;width:1.2rem;height:1px;background:var(--amber-500)}
+.rules strong{color:var(--sand-100);font-weight:600}
+
+/* Decisiones */
+.decisions{counter-reset:d;list-style:none;padding:0;margin:2.5rem 0 0}
+.decisions li{counter-increment:d;display:grid;grid-template-columns:3rem 1fr;gap:1rem;padding:1.3rem 0;border-top:1px solid var(--line)}
+.decisions li::before{content:counter(d,decimal-leading-zero);font-family:var(--display);font-size:1.6rem;color:var(--amber-400);line-height:1.1}
+.decisions strong{display:block;font-weight:600;color:var(--sand-100)}
+.decisions span{color:var(--sand-200);font-size:.96rem}
+
+/* Pasos */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:1.2rem;margin-top:2.5rem;counter-reset:s}
+.steps div{border-top:2px solid var(--line-strong);padding-top:1rem;counter-increment:s}
+.steps div::before{content:"Paso " counter(s);display:block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rain-300);margin-bottom:.3rem}
+.steps div.now{border-top-color:var(--amber-400)}
+.steps div.now::before{content:"Hecho";color:var(--amber-400)}
+.steps h3{font-size:1.25rem;margin-bottom:.4rem}
+.steps p{margin:0;font-size:.92rem;color:var(--sand-200)}
+
+footer{padding-block:4rem 5rem;text-align:center;color:var(--rain-500);font-size:.9rem;border-top:1px solid var(--line)}
+footer .serif{display:block;font-size:clamp(1.6rem,4vw,2.4rem);color:var(--sand-100);margin-bottom:.8rem}
+
+@media (max-width:760px){
+  .plate{grid-template-columns:1fr}
+  .plate:nth-child(even) figure{order:0}
+  .hero{min-height:80vh}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="img/escena_oi.jpg" alt="Oi y la gata Sammy mirando el cielo estrellado desde el patio de una casa en un cerro">
+  <div class="wrap">
+    <p class="label">Para Reiner</p>
+    <h1>Tu libro ya tiene imágenes.</h1>
+    <p>Ocho cuentos, ocho escenas. Cada una sale de una frase que escribiste tú.</p>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="narrow">
+    <p class="label">La propuesta</p>
+    <p class="lead">Así va quedando tu libro: ocho cuentos, cada uno con su escena, y los perros con cara propia.</p>
+    <p>Aquí está lo que ya está hecho y lo poco que necesito que decidas tú. Nada es definitivo hasta que lo apruebes: los cuentos son tuyos, y los perros también.</p>
+  </div>
+  <div class="wrap">
+    <div class="done">
+      <div><strong>8</strong><span>cuentos en el volumen, como acordamos</span></div>
+      <div><strong>27.883</strong><span>palabras tuyas, leídas y medidas cuento por cuento</span></div>
+      <div><strong>8</strong><span>escenas ilustradas, una por cuento</span></div>
+      <div><strong>10</strong><span>perros con su retrato de referencia</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Las ocho láminas</p>
+    <h2 style="font-size:clamp(2.2rem,5vw,3.6rem);max-width:18ch">Cada escena está en tu texto.</h2>
+    <p style="max-width:40rem;color:var(--sand-200);margin-top:1.2rem">Ninguna se inventó. Elegí el momento, busqué la frase que lo cuenta y dibujé solo lo que la frase dice. Lo que el cuento no dice —un color, una hora— está marcado como propuesta, para que lo cambies si no es como lo imaginaste.</p>
+
+    <article class="plate">
+      <figure><img src="img/escena_razon.jpg" alt="Cholito sentado de espaldas en una playa, mirando un auto que se aleja por la orilla" loading="lazy"></figure>
+      <div>
+        <span class="num">I</span>
+        <h3>Razón de Perro</h3>
+        <blockquote>«solo los vi alejarse me senté»</blockquote>
+        <p>Cholito en la playa, con las patas mojadas y arena en el lomo, mirando irse la máquina. La gente se ve lejana, como la describes.</p>
+        <p>La luz es un día gris: el cuento no dice la hora, y evité el atardecer para no dramatizar lo que tú cuentas con calma.</p>
+      </div>
+    </article>
+
+    <article class="plate">
+      <figure><img src="img/escena_odio.jpg" alt="El Negro echado en un refugio de cartón junto a un pequeño memorial en la calle, con buses y grúas de puerto al fondo" loading="lazy"></figure>
+      <div>
+        <span class="num">II</span>
+        <h3>Odio de perro</h3>
+        <blockquote>«hay una imagen del Gaviota con la Lucy jugando fuera del terminal. Ahí me quedé»</blockquote>
+        <p>El Negro en el espacio que le construyó el hombre del terminal, junto al recordatorio de sus hermanos. El atropello no se dibuja: se cuenta por lo que dejó.</p>
+        <div class="ask"><b>Te pregunto:</b> la «imagen» del Gaviota y la Lucy, ¿es un cuadro en el recordatorio o un recuerdo que El Negro ve? La dibujé como cuadro.</div>
+      </div>
+    </article>
+
+    <article class="plate">
+      <figure><img src="img/escena_hermanos.jpg" alt="El Rubio y el Rucio en una calle mojada frente a una panadería; un hombre de blanco les lanza pan" loading="lazy"></figure>
+      <div>
+        <span class="num">III</span>
+        <h3>Hermanos Perros</h3>
+        <blockquote>«desde lejos nos lanzó un pan para cada uno»</blockquote>
+        <p>El Reino del pan, el primer milagro. El Rubio va por su pan con la cola arriba y el Rucio ya está comiendo. Del panadero se ve solo el delantal y el brazo: en el libro, las personas aparecen por partes, como las ve un perro.</p>
+        <p>Como dices que son del mismo color, los distingo por las orejas y la cara, no por el pelaje.</p>
+      </div>
+    </article>
+
+    <article class="plate">
+      <figure><img src="img/escena_merlin.jpg" alt="Merlín echado en el piso de un bote de rescate, tapado con una manta, con una mano sobre su cabeza y el mar abierto detrás" loading="lazy"></figure>
+      <div>
+        <span class="num">IV</span>
+        <h3>La Esperanza de Merlín</h3>
+        <blockquote>«estaba tapado con una manta, había dos personas que vestían igual»</blockquote>
+        <p>El rescate, no la caída al agua. Uno conduce el bote y el otro le pone la mano en la cabeza. El mar está ahí, porque de ahí viene su nombre.</p>
+      </div>
+    </article>
+
+    <article class="plate">
+      <figure><img src="img/escena_lu.jpg" alt="LU, una San Bernardo, bajando la cabeza hasta el hocico de papá blanco, un perro viejo y flaco echado junto a una cascada" loading="lazy"></figure>
+      <div>
+        <span class="num">V</span>
+        <h3>Los sueños de LU</h3>
+        <blockquote>«lo encontré cerca de la cascada y fui corriendo y le puse mis patas encima»</blockquote>
+        <p>El reencuentro en el Parque Ecuador. Es la única imagen del libro donde un perro cuida a otro perro: la grande que llegó a tenerlo todo y el viejo que se lo enseñó.</p>
+        <p>Los sueños de papá blanco no los dibujé. Tu texto los sostiene mejor que cualquier imagen.</p>
+        <div class="ask"><b>Te pregunto:</b> LU apoya una pata, no las dos. Me pareció más cariñoso sobre un perro enfermo. ¿Te sirve así?</div>
+      </div>
+    </article>
+
+    <article class="plate">
+      <figure><img src="img/escena_companero.jpg" alt="Kimba saltando en el patio con una pelota gastada entre los dientes, entre dos ladrillos que marcan el arco, y un niño que termina de patear" loading="lazy"></figure>
+      <div>
+        <span class="num">VI</span>
+        <h3>El compañero</h3>
+        <blockquote>«solo los dos y ese balón»</blockquote>
+        <p>Kimba de arquero, atajando con los dientes. Elegí el patio y no el final en la playa porque el libro ya tiene dos escenas de mar, y porque esta es la que explica el título.</p>
+        <div class="ask"><b>Te pregunto:</b> el cuento dice que Kimba es de raza, pero no cuál. ¿Qué raza es? Si no es como la dibujé, rehago su retrato y la escena.</div>
+      </div>
+    </article>
+
+    <article class="plate">
+      <figure><img src="img/escena_roberto.jpg" alt="Roberto, un perro chico, hablándole a Dama frente a una reja, con dos akita enormes riéndose detrás" loading="lazy"></figure>
+      <div>
+        <span class="num">VII</span>
+        <h3>El amor de Roberto</h3>
+        <blockquote>«le digo hola soy Roberto»</blockquote>
+        <p>La declaración a Dama, con Thor y Kira detrás muertos de la risa. Es la lámina con más humor del libro, y el tamaño lo cuenta solo.</p>
+        <p>El primer párrafo del cuento queda como lo escribiste; la imagen no lo toca.</p>
+      </div>
+    </article>
+
+    <article class="plate">
+      <figure><img src="img/escena_oi.jpg" alt="Oi echado en el patio mirando el cielo estrellado, con la gata Sammy sentada a su lado" loading="lazy"></figure>
+      <div>
+        <span class="num">VIII</span>
+        <h3>Cuando te espero</h3>
+        <blockquote>«nos sentamos bajo la noche estrellada de Acira»</blockquote>
+        <p>La noche en que Sammy le enseña a Oi a extrañar sin alejarse. Es la única escena nocturna y el único gato del libro.</p>
+        <div class="ask"><b>Te pregunto:</b> si prefieres algo más cercano al título, puedo hacer a Oi esperando junto a la puerta.</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Los perros</p>
+    <h2 style="font-size:clamp(2.2rem,5vw,3.6rem);max-width:20ch">Casi nunca dices cómo son. Aquí va mi propuesta.</h2>
+    <p style="max-width:42rem;color:var(--sand-200);margin-top:1.2rem">Cada perro tiene un retrato fijo que se usa en su escena, para que sea el mismo en todo el libro. Separé lo que sale de tu texto de lo que propongo yo. Si alguno no es como lo imaginaste, se cambia.</p>
+    <div class="legend"><span><i style="background:#2f6b45"></i>lo dice tu cuento</span><span><i style="background:#b75738"></i>lo propongo yo</span></div>
+
+    <div class="dogs">
+      <div class="dog"><img src="img/perro_cholito.jpg" alt="Cholito, perro grande color arena con collar de cuero" loading="lazy"><div><h3>Cholito</h3><p class="story">Razón de Perro</p><p class="t">Gigante, con collar de paseo.</p><p class="p">Mestizo, color arena, una oreja doblada.</p></div></div>
+      <div class="dog"><img src="img/perro_negro.jpg" alt="El Negro, perro negro flaco con una franja blanca en el pecho" loading="lazy"><div><h3>El Negro</h3><p class="story">Odio de perro</p><p class="t">Negro, de la calle, del puerto.</p><p class="p">Flaco, franja blanca en el pecho, sin collar.</p></div></div>
+      <div class="dog"><img src="img/perro_rubio.jpg" alt="El Rubio, perro amarillento de orejas paradas y franja blanca en la frente" loading="lazy"><div><h3>El Rubio</h3><p class="story">Hermanos Perros</p><p class="t">Pelaje amarillento, igual que su hermano.</p><p class="p">Orejas paradas, franja blanca en la frente.</p></div></div>
+      <div class="dog"><img src="img/perro_rucio.jpg" alt="El Rucio, perro amarillento de orejas caídas y hocico gris" loading="lazy"><div><h3>El Rucio</h3><p class="story">Hermanos Perros</p><p class="t">Del mismo color que el Rubio.</p><p class="p">Orejas caídas, hocico gris.</p></div></div>
+      <div class="dog"><img src="img/perro_merlin.jpg" alt="Merlín, perro muy grande gris oscuro con el pecho blanco" loading="lazy"><div><h3>Merlín</h3><p class="story">La Esperanza de Merlín</p><p class="t">Muy grande, más que los perros del puerto.</p><p class="p">Gris acero, pecho blanco.</p></div></div>
+      <div class="dog"><img src="img/perro_lu.jpg" alt="LU, San Bernardo blanca con manchas castañas" loading="lazy"><div><h3>LU</h3><p class="story">Los sueños de LU</p><p class="t">San Bernardo, hembra.</p><p class="p">El patrón clásico de la raza.</p></div></div>
+      <div class="dog"><img src="img/perro_papa.jpg" alt="Papá blanco, perro viejo y flaco de pelaje blanco y ojos nublados" loading="lazy"><div><h3>Papá blanco</h3><p class="story">Los sueños de LU</p><p class="t">Blanco, muy viejo, enfermo al final.</p><p class="p">Mestizo mediano, una pelada en el hocico.</p></div></div>
+      <div class="dog"><img src="img/perro_kimba.jpg" alt="Kimba, perro grande negro y fuego con collar rojo" loading="lazy"><div><h3>Kimba</h3><p class="story">El compañero</p><p class="t">Porte formidable, de raza, con collar.</p><p class="p">Negro y fuego, collar rojo. La raza, a confirmar.</p></div></div>
+      <div class="dog"><img src="img/perro_roberto.jpg" alt="Roberto, perro chico blanco con una mancha café en el lomo y collar azul" loading="lazy"><div><h3>Roberto</h3><p class="story">El amor de Roberto</p><p class="t">Chico, de casa, «lindo del vecindario».</p><p class="p">Blanco con mancha café, collar azul.</p></div></div>
+      <div class="dog"><img src="img/perro_oi.jpg" alt="Oi, perro mediano atigrado con patas blancas, hocico canoso y collar verde" loading="lazy"><div><h3>Oi</h3><p class="story">Cuando te espero</p><p class="t">Perro de casa que se va poniendo viejo.</p><p class="p">Atigrado, patas blancas, collar verde.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="narrow">
+    <p class="label">Cómo están hechas</p>
+    <p class="lead">Las ilustraciones están hechas con inteligencia artificial, con Gemini de Google, y así lo diría el libro en los créditos.</p>
+    <p>No las pedí al azar. Cada una siguió las mismas reglas, para que el libro se vea como una sola obra:</p>
+    <ul class="rules">
+      <li><strong>La cámara está a la altura del perro.</strong> El mundo se ve desde abajo, como lo ve quien narra.</li>
+      <li><strong>Las personas aparecen por partes:</strong> un brazo, un delantal, unas piernas. Nadie tiene cara.</li>
+      <li><strong>La violencia no se dibuja.</strong> Se muestra lo que viene después: el memorial, el rescate.</li>
+      <li><strong>Cada detalle sale de una frase tuya</strong>, y lo que no está en el texto queda marcado como propuesta.</li>
+      <li><strong>Acuarela y lápiz sobre papel</strong>, la misma mano en las ocho.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="narrow">
+    <p class="label">Lo que necesito de ti</p>
+    <h2 style="font-size:clamp(2rem,4.6vw,3.2rem)">Con estas respuestas, sigo.</h2>
+    <p style="color:var(--sand-200);margin-top:1rem">Me las puedes mandar por WhatsApp, con el número y un sí, un no o lo que quieras cambiar.</p>
+    <ol class="decisions">
+      <li><div><strong>¿Te parece bien que las ilustraciones sean hechas con IA?</strong><span>Se declara en los créditos. Si prefieres a un ilustrador, estas sirven como guía para encargarlo.</span></div></li>
+      <li><div><strong>¿Los perros son como los imaginaste?</strong><span>Mira la sección de arriba. Basta con decirme cuál cambiar y cómo.</span></div></li>
+      <li><div><strong>¿De qué raza es Kimba?</strong><span>El cuento dice que es de raza, pero no cuál.</span></div></li>
+      <li><div><strong>¿La gata se escribe Samy o Sammy?</strong><span>En el texto aparecen las dos formas.</span></div></li>
+      <li><div><strong>El nivel de corrección.</strong><span>Te mando aparte el mismo párrafo tuyo en cuatro versiones, de nada tocado a pulido. Eliges una letra y con esa corrijo el libro entero. Ninguna cambia lo que cuentas.</span></div></li>
+      <li><div><strong>¿El primer párrafo de El amor de Roberto queda tal cual?</strong><span>Me dijiste que no lo reescribirías; solo confirmo que lo dejamos así.</span></div></li>
+      <li><div><strong>Las tres preguntas de las láminas</strong><span>El cuadro de Odio de perro, la pata de LU y la escena de Oi.</span></div></li>
+      <li><div><strong>El título del libro.</strong><span>Tómate tu tiempo. Si no se te ocurre otro, <cite>Razón de Perro</cite> funciona bien.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Lo que sigue</p>
+    <h2 style="font-size:clamp(2rem,4.6vw,3.2rem);max-width:20ch">De aquí a tenerlo en la mano.</h2>
+    <div class="steps">
+      <div class="now"><h3>Texto e imágenes</h3><p>Los cuentos revisados y las ocho escenas.</p></div>
+      <div><h3>Corrección</h3><p>Con el nivel que elijas, verificada palabra por palabra contra tu original.</p></div>
+      <div><h3>Maqueta</h3><p>Portada, orden de los cuentos, tipografía y una lámina por apertura.</p></div>
+      <div><h3>Prueba de imprenta</h3><p>Una página impresa para revisar color y tamaño antes del tiraje.</p></div>
+      <div><h3>Tu libro</h3><p>Impreso, con tu nombre en la portada.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span class="serif">Los cuentos son tuyos. Yo solo les puse imágenes.</span>
+  Brian · septiembre de 2026 · esta página no aparece en buscadores
+</footer>
+
+</body>
+</html>
